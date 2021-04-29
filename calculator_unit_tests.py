@@ -22,11 +22,18 @@ class CalculatorUnitTests(unittest.TestCase):
         self.assertEqual(calc.difference(5, 6), -1)
         self.assertEqual(calc.difference(5, -6), 11)
     
+    def test_correct_values_sum(self):
+        calc = calculator.Calculator()
+        self.assertEqual(calc.multiply(1, 1), 1)
+        self.assertEqual(calc.multiply(5, 6), 30)
+        self.assertEqual(calc.multiply(5, -6), -30)
+
     def test_type(self):
         calc = calculator.Calculator()
         with self.assertRaises(TypeError):
             calc.sum("4", 2)
             calc.difference("4", 2)
+            calc.multiply("4", 2)
 
 
 if __name__ == '__main__':
