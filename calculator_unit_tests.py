@@ -41,6 +41,23 @@ class CalculatorUnitTests(unittest.TestCase):
             calc.multiply("4", 2)
             calc.divide("4", 2)
 
+    def test_failing_on_purpose(self):
+        # NOTE: this is a terrible practice...
+        calc = calculator.Calculator()
+        # these are commented out because the test suite *should* pass
+        # self.assertEqual(calc.sum(1, 1), 42)
+        # self.assertEqual(calc.difference(1, 1), 42)
+        # self.assertEqual(calc.multiply(1, 1), 42)
+        # self.assertEqual(calc.divide(1, 1), 42)
+        # with self.assertRaises(TypeError):
+        #     calc.sum("4", "2")
+
+        # it would be okay to write tests that *expect* failing values
+        self.assertNotEqual(calc.sum(1, 1), 42)
+        self.assertNotEqual(calc.difference(1, 1), 42)
+        self.assertNotEqual(calc.multiply(1, 1), 42)
+        self.assertNotEqual(calc.divide(1, 1), 42)
+
 
 if __name__ == '__main__':
     unittest.main()
